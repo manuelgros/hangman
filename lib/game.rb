@@ -31,10 +31,6 @@ class Game
     # binding.pry
   end
 
-  # Play one game
-  #   Play one round until game_end?
-  # end
-
   def run_full_game
     puts 'Game starts'
     display_board(wordboard)
