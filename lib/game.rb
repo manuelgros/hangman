@@ -6,14 +6,14 @@ class Game
   include Notificationable
 
   attr_reader :solution, :player
-  attr_accessor :last_guess, :tries, :wordboard
+  attr_accessor :last_guess, :lifes, :wordboard
 
   def initialize
     @solution = WordGenerator.new.getting_solution
     @player = Player.new
     @last_guess = ''
     @wordboard = create_wordboard(solution)
-    @tries = 10
+    @lifes = 10
   end
 
   # Solution doesn't work because it returns only first match, even if guess is included in solution multiple times
@@ -24,17 +24,17 @@ class Game
     elsif guess == solution
       self.wordboard = guess.split('')
     else
-      @tries -= 1
+      @lifes -= 1
     end
   end
 
   # works currently only with single letter guess. Implement whole word solve later
   def play_round
-    puts tries > 1 ? game_message('tries_left') : game_message('last_try')
+    puts lifes > 1 ? game_message('lifes_left') : game_message('last_try')
     last_guess = player.getting_guess
     check_guess(last_guess)
     display_board(wordboard)
-    # @tries -= 1
+    # @lifes -= 1
   end
 
   def run_full_game
@@ -42,11 +42,11 @@ class Game
     puts game_message('game_starts')
     display_board(wordboard)
     play_round until game_over?
-    puts tries.zero? ? game_message('player_lost') : game_message('player_won')
+    puts lifes.zero? ? game_message('player_lost') : game_message('player_won')
   end
 
   def game_over?
-    wordboard.join == solution || tries.zero?
+    wordboard.join == solution || lifes.zero?
   end
 
   def create_wordboard(word)
