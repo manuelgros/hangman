@@ -24,7 +24,6 @@ class Game
   end
 
   def run_full_game
-    puts game_description
     puts game_message('game_starts')
     display_board(wordboard)
     play_round until game_over?
