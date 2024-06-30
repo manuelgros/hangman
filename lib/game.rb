@@ -19,13 +19,6 @@ class Game
     @lifes = 10
   end
 
-  def play_round
-    puts lifes > 1 ? game_message('lifes_left') : game_message('last_try')
-    last_guess = player.getting_input('guess')
-    check_guess(last_guess)
-    display_board(wordboard)
-  end
-
   def run_full_game
     puts game_description
     puts game_message('game_starts')
@@ -33,6 +26,15 @@ class Game
     play_round until game_over?
     puts lifes.zero? ? game_message('player_lost') : game_message('player_won')
     play_again
+  end
+
+  private
+
+  def play_round
+    puts lifes > 1 ? game_message('lifes_left') : game_message('last_try')
+    last_guess = player.getting_input('guess')
+    check_guess(last_guess)
+    display_board(wordboard)
   end
 
   def play_again

@@ -9,6 +9,8 @@ class Player
     validate_guess(gets.chomp.to_s.downcase)
   end
 
+  private
+
   def validate_guess(guess)
     return guess if guess.match?(/\A[a-zA-Z]+\z/)
 

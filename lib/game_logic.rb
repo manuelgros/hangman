@@ -1,5 +1,7 @@
 # Module holding game logic and operations
 module GameLogic
+  private
+
   def check_guess(guess)
     if guess.size == 1 && solution.include?(guess)
       solution.each_char.with_index { |letter, idx| wordboard[idx] = guess if letter.eql?(guess) }
