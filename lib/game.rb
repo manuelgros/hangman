@@ -6,12 +6,13 @@ class Game
   include Notificationable
 
   attr_reader :solution, :player
-  attr_accessor :last_guess, :lifes, :wordboard
+  attr_accessor :last_guess, :lifes, :wordboard, :wrong_guesses
 
   def initialize
     @solution = WordGenerator.new.getting_solution
     @player = Player.new
     @last_guess = ''
+    @wrong_guesses = []
     @wordboard = create_wordboard(solution)
     @lifes = 10
   end
@@ -25,6 +26,7 @@ class Game
       self.wordboard = guess.split('')
     else
       @lifes -= 1
+      wrong_guesses << guess
     end
   end
 
@@ -56,6 +58,7 @@ class Game
   # Maybe split board display and letters left into seperate methods. Just storing here.
   def display_board(array)
     puts "\n\n#{array.join(' ')}   #{array.count('_')} letters left\n\n"
+    puts "Already guessed: #{wrong_guesses.join(', ')}"
   end
 
   # Should Display class be created?
