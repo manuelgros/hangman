@@ -17,7 +17,7 @@ However, if you guess wrong you lose one of your lifes. If you guess wrong 10 ti
       'lifes_left' => "#{lifes} lifes left.",
       'last_try' => 'ONLY 1 TRY LEFT!'.red,
       'solution' => "The solution was #{solution.upcase}",
-      'player_won' => "You got it! The solution was #{solution.upcase}. Great job!".green,
+      'player_won' => "You got it! Solution: #{solution.upcase}.  Lifes left: #{lifes}. Great job!".green,
       'player_lost' => "You are out of lifes. The solution was #{solution.upcase}. You'l get it next time!".red
     }[message]
   end
