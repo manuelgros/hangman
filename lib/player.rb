@@ -13,6 +13,6 @@ class Player
     return guess if guess.match?(/\A[a-zA-Z]+\z/)
 
     puts prompt_message('error')
-    getting_guess
+    getting_input('guess')
   end
 end
