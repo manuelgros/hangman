@@ -42,7 +42,7 @@ class Game
     puts game_message('game_starts')
     display_board(wordboard)
     play_round until game_over?
-    puts game_message('solution')
+    puts tries.zero? ? game_message('player_lost') : game_message('player_won')
   end
 
   def game_over?

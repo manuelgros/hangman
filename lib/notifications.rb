@@ -16,7 +16,9 @@ You have 10 GUESSES per word.\n\n)
       'game_starts' => "Your secret word has #{solution.size} letters. Good luck!",
       'tries_left' => "#{tries} tries left.",
       'last_try' => 'ONLY 1 TRY LEFT!'.red,
-      'solution' => "The solution was #{solution.upcase}"
+      'solution' => "The solution was #{solution.upcase}",
+      'player_won' => "You got it! The solution was #{solution.upcase}. Great job!".green,
+      'player_lost' => "You are out of tries. The solution was #{solution.upcase}. You'l get it next time!".red
     }[message]
   end
 
