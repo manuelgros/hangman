@@ -4,15 +4,15 @@ require './lib/notifications'
 class Player
   include Notificationable
 
-  def getting_guess
-    print prompt_message('guess_prompt')
+  def getting_input(type)
+    print prompt_message(type)
     validate_guess(gets.chomp.to_s.downcase)
   end
 
   def validate_guess(guess)
     return guess if guess.match?(/\A[a-zA-Z]+\z/)
 
-    puts prompt_message('guess_error')
+    puts prompt_message('error')
     getting_guess
   end
 end

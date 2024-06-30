@@ -30,7 +30,7 @@ class Game
 
   def play_round
     puts lifes > 1 ? game_message('lifes_left') : game_message('last_try')
-    last_guess = player.getting_guess
+    last_guess = player.getting_input('guess')
     check_guess(last_guess)
     display_board(wordboard)
   end
@@ -41,10 +41,19 @@ class Game
     display_board(wordboard)
     play_round until game_over?
     puts lifes.zero? ? game_message('player_lost') : game_message('player_won')
+    play_again
   end
 
   def game_over?
     wordboard.join == solution || lifes.zero?
+  end
+
+  def play_again
+    if player.getting_input('again') == 'y'
+      Game.new.run_full_game
+    else
+      exit
+    end
   end
 
   def create_wordboard(word)

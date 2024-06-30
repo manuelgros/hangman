@@ -24,8 +24,9 @@ However, if you guess wrong you lose one of your lifes. If you guess wrong 10 ti
 
   def prompt_message(message)
     {
-      'guess_prompt' => 'Type in your guess: ',
-      'guess_error' => "\nUnvalid guess! Please make sure you only type either a single letter of the english alphabet
+      'guess' => 'Type in your guess: ',
+      'again' => 'Do you want to play again? Type Y for yes: ',
+      'error' => "\nUnvalid guess! Please make sure you only type either a single letter of the english alphabet
 or a full word if you wish to guess solve.\n"
     }[message]
   end

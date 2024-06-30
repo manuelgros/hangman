@@ -5,6 +5,7 @@ class WordGenerator
   WORD_FILE = File.open('google-10000-english.txt')
 
   def initialize
+    WORD_FILE.rewind
     @word_database = WORD_FILE.readlines.select { |word| word if word.chomp.size.between?(5, 12) }
   end
 
