@@ -1,7 +1,10 @@
 require './lib/player'
+require './lib/notifications'
 
 # Game class
 class Game
+  include Notificationable
+
   attr_reader :solution, :player
   attr_accessor :last_guess, :tries, :wordboard
 
@@ -23,7 +26,7 @@ class Game
 
   # works currently only with single letter guess. Implement whole word solve later
   def play_round
-    puts "#{tries} tries left"
+    puts tries > 1 ? game_message('tries_left') : game_message('last_try')
     last_guess = player.getting_guess
     compare_to_solution(last_guess) if last_guess.size.eql?(1)
     display_board(wordboard)
@@ -32,10 +35,11 @@ class Game
   end
 
   def run_full_game
-    puts 'Game starts'
+    puts game_description
+    puts game_message('game_starts')
     display_board(wordboard)
     play_round until game_over?
-    puts "The solution was #{solution.upcase}"
+    puts game_message('solution')
   end
 
   def game_over?
