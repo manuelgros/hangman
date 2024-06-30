@@ -19,6 +19,10 @@ class Game
     @lifes = 10
   end
 
+  def self.star_game
+    Game.new.run_full_game
+  end
+
   def run_full_game
     puts game_description
     puts game_message('game_starts')

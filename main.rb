@@ -3,4 +3,4 @@ require './lib/word_generator'
 require './lib/game'
 require 'pry-byebug'
 
-Game.new.run_full_game
+Game.star_game
