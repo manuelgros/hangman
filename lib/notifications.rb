@@ -23,8 +23,8 @@ You have 10 GUESSES per word.\n\n)
   def prompt_message(message)
     {
       'guess_prompt' => 'Type in your guess or the command SOLVE: ',
-      'guess_error' => "\nUnvalid guess! Please make sure you only type in a single letter of the english alphabet
-or type the word SOLVE if you wish to guess the whole word.\n"
+      'guess_error' => "\nUnvalid guess! Please make sure you only type either a single letter of the english alphabet
+or a full word if you wish to guess solve.\n"
     }[message]
   end
 end

@@ -19,8 +19,10 @@ class Game
   # Solution doesn't work because it returns only first match, even if guess is included in solution multiple times
   # However, I think direction is right.
   def compare_to_solution(guess)
-    solution.each_char.with_index do |letter, idx|
-      wordboard[idx] = guess if letter.eql?(guess)
+    if guess.size == 1
+      solution.each_char.with_index { |letter, idx| wordboard[idx] = guess if letter.eql?(guess) }
+    elsif guess == solution
+      self.wordboard = guess.split('')
     end
   end
 
@@ -28,10 +30,9 @@ class Game
   def play_round
     puts tries > 1 ? game_message('tries_left') : game_message('last_try')
     last_guess = player.getting_guess
-    compare_to_solution(last_guess) if last_guess.size.eql?(1)
+    compare_to_solution(last_guess) # if last_guess.size.eql?(1)
     display_board(wordboard)
     @tries -= 1
-    # binding.pry
   end
 
   def run_full_game
@@ -43,7 +44,7 @@ class Game
   end
 
   def game_over?
-    wordboard.none?('_') || tries.zero?
+    wordboard.join == solution || tries.zero?
   end
 
   def create_wordboard(word)
