@@ -14,8 +14,8 @@ However, if you guess wrong you lose one of your lifes. If you guess wrong 10 ti
   def game_message(message)
     {
       'game_starts' => "Your secret word has #{solution.size} letters. Good luck!",
-      'lifes_left' => "#{lifes} lifes left.\n",
-      'last_try' => 'ONLY 1 TRY LEFT!'.red,
+      'lifes_left' => "#{lifes} lifes left.\n".green,
+      'last_try' => 'ONLY 1 Life LEFT!'.red,
       'solution' => "The solution was #{solution.upcase}",
       'player_won' => "You got it! Solution: #{solution.upcase}.  Lifes left: #{lifes}. Great job!".green,
       'player_lost' => "You are out of lifes. The solution was #{solution.upcase}. You'l get it next time!".red
@@ -27,7 +27,7 @@ However, if you guess wrong you lose one of your lifes. If you guess wrong 10 ti
       'guess' => 'Type in your guess: ',
       'again' => 'Do you want to play again? Type Y for yes: ',
       'error' => "\nUnvalid guess! Please make sure you only type either a single letter of the english alphabet
-or a full word if you wish to guess solve.\n"
+or a full word if you wish to guess solve.\n".yellow
     }[message]
   end
 end
