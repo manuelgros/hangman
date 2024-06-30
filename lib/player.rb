@@ -10,7 +10,7 @@ class Player
   end
 
   def validate_guess(guess)
-    return guess if guess.match?(/\A[a-zA-Z]+\z/) # && guess.size.eql?(1) || guess == 'solve'
+    return guess if guess.match?(/\A[a-zA-Z]+\z/)
 
     puts prompt_message('guess_error')
     getting_guess

@@ -30,7 +30,7 @@ class Game
   def play_round
     puts tries > 1 ? game_message('tries_left') : game_message('last_try')
     last_guess = player.getting_guess
-    compare_to_solution(last_guess) # if last_guess.size.eql?(1)
+    compare_to_solution(last_guess)
     display_board(wordboard)
     @tries -= 1
   end
