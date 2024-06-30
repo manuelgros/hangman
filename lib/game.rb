@@ -1,9 +1,11 @@
 require './lib/player'
 require './lib/notifications'
+require './lib/game_logic'
 
 # Game class
 class Game
   include Notificationable
+  include GameLogic
 
   attr_reader :solution, :player
   attr_accessor :last_guess, :lifes, :wordboard, :wrong_guesses
@@ -15,17 +17,6 @@ class Game
     @wrong_guesses = []
     @wordboard = create_wordboard(solution)
     @lifes = 10
-  end
-
-  def check_guess(guess)
-    if guess.size == 1 && solution.include?(guess)
-      solution.each_char.with_index { |letter, idx| wordboard[idx] = guess if letter.eql?(guess) }
-    elsif guess == solution
-      self.wordboard = guess.split('')
-    else
-      @lifes -= 1
-      wrong_guesses << guess
-    end
   end
 
   def play_round
@@ -44,24 +35,11 @@ class Game
     play_again
   end
 
-  def game_over?
-    wordboard.join == solution || lifes.zero?
-  end
-
   def play_again
     if player.getting_input('again') == 'y'
       Game.new.run_full_game
     else
       exit
     end
-  end
-
-  def create_wordboard(word)
-    Array.new(word.size, '_')
-  end
-
-  def display_board(array)
-    puts "\n\n#{array.join(' ')}   #{array.count('_')} letters left\n\n"
-    puts "Already guessed: #{wrong_guesses.join(', ')}"
   end
 end
