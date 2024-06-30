@@ -1,10 +1,10 @@
 require './lib/player'
-require './lib/notifications'
+require './lib/messageable'
 require './lib/game_logic'
 
 # Game class
 class Game
-  include Notificationable
+  include Messageable
   include GameLogic
 
   attr_reader :solution, :player

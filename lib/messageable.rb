@@ -1,7 +1,7 @@
 require 'colorize'
 
 # Module that provides all game notifications and messages
-module Notificationable
+module Messageable
   def game_message(message)
     {
       'game_starts' => "Your secret word has #{solution.size} letters. Good luck!",

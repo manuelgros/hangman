@@ -1,8 +1,8 @@
-require './lib/notifications'
+require './lib/messageable'
 
 # Player Class
 class Player
-  include Notificationable
+  include Messageable
 
   def getting_input(type)
     print prompt_message(type)
