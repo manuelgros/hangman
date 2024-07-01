@@ -2,11 +2,14 @@
 module GameLogic
   private
 
+  # Method to big and mixed, try to refactor and simplfy
   def check_guess(guess)
     if guess.size == 1 && solution.include?(guess)
       solution.each_char.with_index { |letter, idx| wordboard[idx] = guess if letter.eql?(guess) }
     elsif guess == solution
       self.wordboard = guess.split('')
+    elsif guess == 'save'
+      save_game
     else
       @lifes -= 1
       wrong_guesses << guess
