@@ -16,7 +16,6 @@ class Game
   def initialize
     @solution = WordGenerator.new.getting_solution
     @player = Player.new
-    @last_guess = ''
     @wrong_guesses = []
     @wordboard = create_wordboard(solution)
     @lifes = 10
@@ -42,8 +41,7 @@ class Game
 
   def play_round
     puts lifes > 1 ? game_message('lifes_left') : game_message('last_try')
-    last_guess = player.getting_input('guess')
-    check_guess(last_guess)
+    get_input(player.getting_input('guess'))
     display_board(wordboard)
   end
 
