@@ -21,7 +21,7 @@ class Game
     @lifes = 10
   end
 
-  def self.star_game
+  def self.start_game
     if File.exist? 'save_game/save_file.yaml'
       Saveable.want_to_load
     else

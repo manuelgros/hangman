@@ -5,4 +5,4 @@ require './lib/game_description'
 require 'pry-byebug'
 
 puts GameDescription.game_description
-Game.star_game
+Game.start_game
