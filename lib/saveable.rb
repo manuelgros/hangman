@@ -4,10 +4,7 @@ require './lib/messageable'
 module Saveable
   include Messageable
   def self.load_game
-    # save_file = File.open 'save_game/save_file.yaml'
     save_game = YAML.load_file('save_game/save_file.yaml', permitted_classes: [Game, Player])
-    # save_file.close
-    # File.delete(save_file)
     save_game.run_full_game
   end
 
@@ -23,7 +20,6 @@ module Saveable
   private
 
   def save_game(game)
-    # save = game.to_yam
     filename = 'save_game/save_file.yaml'
 
     File.open(filename, 'w') do |file|
