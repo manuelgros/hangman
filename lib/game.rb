@@ -41,7 +41,7 @@ class Game
 
   def play_round
     puts lifes > 1 ? game_message('lifes_left') : game_message('last_try')
-    get_input(player.getting_input('guess'))
+    check_input(player.getting_input('guess'))
     display_board(wordboard)
   end
 

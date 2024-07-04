@@ -2,7 +2,7 @@
 module GameLogic
   private
 
-  def get_input(input)
+  def check_input(input)
     if input == 'save'
       save_game(self)
     else
