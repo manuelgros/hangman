@@ -2,7 +2,6 @@
 module GameLogic
   private
 
-  # Method to big and mixed, try to refactor and simplfy
   def get_input(input)
     if input == 'save'
       save_game(self)
