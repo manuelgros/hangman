@@ -4,7 +4,7 @@ module GameLogic
 
   def check_input(input)
     if input == 'save'
-      save_game(self)
+      save_game(self, create_save_slots)
     else
       check_guess(input)
     end
