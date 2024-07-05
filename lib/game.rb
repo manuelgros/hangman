@@ -23,8 +23,9 @@ class Game
   end
 
   def self.start_game
-    if File.exist? 'save_game/save_file.yaml'
-      Saveable.want_to_load
+    if File.exist? 'save_game/save_slot_1.yaml'
+      # Saveable.want_to_load
+      Game.new.want_to_load
     else
       Game.new.run_full_game
     end
