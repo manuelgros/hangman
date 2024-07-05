@@ -1,0 +1,18 @@
+--- !ruby/object:Game
+solution: orlando
+player: !ruby/object:Player {}
+wrong_guesses:
+- u
+- e
+- m
+- s
+- t
+wordboard:
+- o
+- _
+- _
+- a
+- "n"
+- _
+- o
+lifes: 5
