@@ -17,11 +17,8 @@ module Saveable
   end
 
   def want_to_load
-    puts 'There is a saved game. Do you want to continue? Y for yes'
-    if gets.chomp == 'y'
-      # display_slots(create_save_slots)
-      # print 'Choose save game (1-3):'
-      # load_game(create_save_slots[gets.chomp.to_i])
+    puts 'Do you want to load an exisiting game or start new? L for load / N for new'
+    if gets.chomp == 'l'
       select_save_game
     else
       Game.new.run_full_game
