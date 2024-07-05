@@ -4,6 +4,17 @@ require './lib/messageable'
 module Saveable
   include Messageable
 
+  def want_to_load
+    puts 'Do you want to load an exisiting game or start new? L for load / N for new'
+    if gets.chomp == 'l'
+      select_save_game
+    else
+      Game.new.run_full_game
+    end
+  end
+
+  private
+
   def create_save_slots
     slot2 = File.open('./save_game/save_slot_2.yaml', 'r')
     slot1 = File.open('./save_game/save_slot_1.yaml', 'r')
@@ -14,15 +25,6 @@ module Saveable
   def load_game(save_slot)
     save_game = YAML.load_file(save_slot, permitted_classes: [Game, Player])
     save_game.run_full_game
-  end
-
-  def want_to_load
-    puts 'Do you want to load an exisiting game or start new? L for load / N for new'
-    if gets.chomp == 'l'
-      select_save_game
-    else
-      Game.new.run_full_game
-    end
   end
 
   def select_save_game
@@ -36,8 +38,6 @@ module Saveable
       select_save_game
     end
   end
-
-  private
 
   def save_game(game, slots_array)
     puts 'Select slot to save curretn game'
