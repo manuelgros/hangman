@@ -2,6 +2,7 @@ require './lib/player'
 require './lib/messageable'
 require './lib/game_logic'
 require './lib/saveable'
+require './lib/save_and_load'
 require 'pry-byebug'
 
 # Game class
@@ -32,6 +33,7 @@ class Game
   def run_full_game
     puts game_message('game_starts')
     display_board(wordboard)
+    # binding.pry
     play_round until game_over?
     puts lifes.zero? ? game_message('player_lost') : game_message('player_won')
     play_again
