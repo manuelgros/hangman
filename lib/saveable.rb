@@ -9,7 +9,7 @@ module Saveable
   def want_to_load
     return Game.new.run_full_game if create_save_slots[1..].all? { |file| File.empty?(file) }
 
-    puts "Do you want to load an exisiting game or start new?\n#{'[1]'.green} YES\n#{'[2]'.green} NO "
+    puts "Do you want to load an exisiting game or start new?\n#{'[1]'.green} LOAD\n#{'[2]'.green} NEW "
     if gets.chomp == '1'
       select_save_game
     else
@@ -33,12 +33,12 @@ module Saveable
 
   def select_save_game
     display_slots(create_save_slots)
-    print 'Choose save game (1-3) or type N for new game:'
+    print 'Choose save game (1-3) or type N for new game: '
     selection = gets.chomp.to_i
     if selection.between?(1, 3) && !File.empty?(create_save_slots[selection])
       load_game(create_save_slots[selection])
     else
-      puts 'Unvalid selection OR empty save game, choose again...'
+      puts "\nUnvalid selection OR empty save game, choose again...\n".yellow
       select_save_game
     end
   end

@@ -6,12 +6,12 @@ class Player
 
   def getting_input(type)
     print prompt_message(type)
-    validate_guess(gets.chomp.to_s.downcase)
+    validate_input(gets.chomp.to_s.downcase)
   end
 
   private
 
-  def validate_guess(guess)
+  def validate_input(guess)
     return guess if guess.match?(/\A[a-zA-Z]+\z/)
 
     puts prompt_message('error')

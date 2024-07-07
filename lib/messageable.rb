@@ -4,7 +4,7 @@ require 'colorize'
 module Messageable
   def game_message(message)
     {
-      'game_starts' => "Your secret word has #{solution.size} letters. Good luck!",
+      'game_starts' => "\nYour secret word has #{solution.size} letters. Good luck!",
       'lifes_left' => "#{lifes.to_s.green} lifes left.\n",
       'last_try' => 'ONLY 1 Life LEFT!'.red,
       'solution' => "The solution was #{solution.upcase}",
