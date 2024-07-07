@@ -8,7 +8,7 @@ module Messageable
       'lifes_left' => "#{lifes} lifes left.\n".green,
       'last_try' => 'ONLY 1 Life LEFT!'.red,
       'solution' => "The solution was #{solution.upcase}",
-      'player_won' => "You got it! Solution: #{solution.upcase}.  Lifes left: #{lifes}. Great job!".green,
+      'player_won' => "You got it! Solution: #{solution.upcase}. \nLifes left: #{lifes}.\nGreat job!".green,
       'player_lost' => "You are out of lifes. The solution was #{solution.upcase}. You'l get it next time!".red
     }[message]
   end
