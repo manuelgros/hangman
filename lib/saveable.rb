@@ -44,9 +44,9 @@ module Saveable
   end
 
   def save_game(game, slots_array)
-    puts 'Select slot to save current game'
+    puts "\nSelect slot to save current game"
     display_slots(slots_array)
-    print 'Select slot number: '
+    print "\nSelect slot number: "
 
     filename = slots_array[gets.chomp.to_i]
 
