@@ -22,7 +22,6 @@ class Game
 
   def self.start_game
     if File.exist? 'save_game/save_slot_1.yaml'
-      # Saveable.want_to_load
       Game.new.want_to_load
     else
       Game.new.run_full_game
@@ -46,7 +45,7 @@ class Game
   end
 
   def play_again
-    if player.getting_input('again') == 'y'
+    if player.getting_input('again') == 'j'
       Game.new.run_full_game
     else
       exit

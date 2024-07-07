@@ -1,3 +1,5 @@
+require 'colorize'
+
 # Module holding game logic and operations
 module GameLogic
   private
@@ -31,6 +33,6 @@ module GameLogic
 
   def display_board(array)
     puts "\n\n#{array.join(' ')}   #{array.count('_')} letters left\n\n"
-    puts "Already guessed: #{wrong_guesses.join(', ')}"
+    puts "Already guessed: #{wrong_guesses.join(', ').red}"
   end
 end

@@ -1,5 +1,6 @@
 require './lib/messageable'
 require 'yaml'
+require 'colorize'
 
 # Saveable Module for save / load function of game progress
 module Saveable
@@ -8,8 +9,8 @@ module Saveable
   def want_to_load
     return Game.new.run_full_game if create_save_slots[1..].all? { |file| File.empty?(file) }
 
-    puts 'Do you want to load an exisiting game or start new? L for load / N for new'
-    if gets.chomp == 'l'
+    puts "Do you want to load an exisiting game or start new?\n#{'[1]'.green} YES\n#{'[2]'.green} NO "
+    if gets.chomp == '1'
       select_save_game
     else
       Game.new.run_full_game
@@ -66,7 +67,7 @@ module Saveable
     array_with_saves.each_with_index do |file, idx|
       next if idx.zero?
 
-      puts "#{idx}. Slot: Current game: #{show_save(file)}"
+      puts "[#{idx}]".green + " Slot: Current game: #{show_save(file)}"
     end
   end
 end
